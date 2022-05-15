@@ -17,25 +17,25 @@ class ChocolateBoilerTest {
           public void run() {
             ChocolateBoiler boiler = ChocolateBoiler.getInstance();
 
-            //System.out.println(Thread.currentThread().getName() + "===========================" + boiler.hashCode());
+            System.out.println(Thread.currentThread().getName() + "===========================" + boiler.hashCode());
 
-//            //System.out.println(Thread.currentThread().getName() + " fill()");
-//            boiler.fill();
-//            //System.out.println(Thread.currentThread().getName() + " fill()" + boiler);
-//            assertFalse(boiler.isEmpty(), Thread.currentThread().getName());
-//            assertFalse(boiler.isBoiled(), Thread.currentThread().getName());
-//
-//            //System.out.println(Thread.currentThread().getName() + " boil()");
-//            boiler.boil();
-//            //System.out.println(Thread.currentThread().getName() + " boil()" + boiler);
-//            assertFalse(boiler.isEmpty(), Thread.currentThread().getName());
-//            assertTrue(boiler.isBoiled(), Thread.currentThread().getName());
-//
-//           // System.out.println(Thread.currentThread().getName() + " drain()");
-//            boiler.drain();
-//            //System.out.println(Thread.currentThread().getName() + " drain()" + boiler);
-//            assertTrue(boiler.isEmpty(), Thread.currentThread().getName());
-//            assertTrue(boiler.isBoiled(), Thread.currentThread().getName());
+            System.out.println(Thread.currentThread().getName() + " fill()");
+            boiler.fill();
+            System.out.println(Thread.currentThread().getName() + " fill()" + boiler);
+            assertFalse(boiler.isEmpty(), Thread.currentThread().getName());
+            assertFalse(boiler.isBoiled(), Thread.currentThread().getName());
+
+            System.out.println(Thread.currentThread().getName() + " boil()");
+            boiler.boil();
+            System.out.println(Thread.currentThread().getName() + " boil()" + boiler);
+            assertFalse(boiler.isEmpty(), Thread.currentThread().getName());
+            assertTrue(boiler.isBoiled(), Thread.currentThread().getName());
+
+            System.out.println(Thread.currentThread().getName() + " drain()");
+            boiler.drain();
+            System.out.println(Thread.currentThread().getName() + " drain()" + boiler);
+            assertTrue(boiler.isEmpty(), Thread.currentThread().getName());
+            assertTrue(boiler.isBoiled(), Thread.currentThread().getName());
           }
         };
 
