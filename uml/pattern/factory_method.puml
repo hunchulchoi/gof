@@ -1,0 +1,54 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package creator <<Rectangle>>{
+    abstract class PizzaStore{
+        {abstract} createPizza()
+        orderPizza()
+    }
+    note top
+        추상 생산자 클래스
+        서브클래스에서 제품(객체)를 생산하려고
+        구현하는 팩토리 메소드(추상)를 정의
+    end note
+    class NYPizzaStore{
+        createPizza()
+    }
+    note right of NYPizzaStore::createPizza
+        팩토리 메소드
+    end note
+    class ChicagoPizzaStore{
+        createPizza()
+    }
+}
+
+package product <<Rectangle>>{
+    class Pizza
+    note left
+        팩토리는 제품을 생산한다
+    end note
+    class NYStyleCheesePizza
+    class NYStyleVeggiePizza
+    class ChicagoStyleCheesePizza
+    class ChicagoStyleVeggiePizza
+}
+
+note "제품을 생산하는 클래스: 구상 생산자(Concrete creator)" as N1
+NYPizzaStore .. N1
+ChicagoPizzaStore ..N1
+
+note "구상 클래스" as N2
+NYStyleCheesePizza .. N2
+NYStyleVeggiePizza ..N2
+ChicagoStyleCheesePizza ..N2
+ChicagoStyleVeggiePizza ..N2
+
+PizzaStore <-- NYPizzaStore
+PizzaStore <-- ChicagoPizzaStore
+
+Pizza <-- NYStyleCheesePizza
+Pizza <-- NYStyleVeggiePizza
+Pizza <-- ChicagoStyleCheesePizza
+Pizza <-- ChicagoStyleVeggiePizza
+
+@enduml

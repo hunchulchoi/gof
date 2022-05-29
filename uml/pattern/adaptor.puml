@@ -1,0 +1,16 @@
+
+@startuml
+class Client
+interface Target{
+    requetst()
+}
+class Adaptor{
+    request()
+}
+class Adaptee{
+    specificRequest()
+}
+Client --> Target : 클라이언트는 타깃 인터페이스만 볼수 있음 >
+Target <|.. Adaptor : 어탭터에서 타킷 인터페이스를 구현 <
+Adaptor --> Adaptee : 모든 요청은 어댑티에 위임된다 >
+@enduml

@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Subject{
+    registerObserver()
+    removeObserver()
+    notifyObserver()
+}
+note top
+    주제를 나타내는 Subject인터페이스
+    객체에서 옵저버로 등록 탈퇴 할때
+    이 인터페이스의 메소드를 사용
+end note
+interface Observer{
+    update()
+}
+note top
+    옵저버가 될 가능성이 있는
+    객체는 반드시 Observer인터페이스를 구현
+    주제의 상태가 바뀌었을때 호출되는 update()
+end note
+
+class ConcreteSubject{
+    registerObserver()
+    removeObserver()
+    notifyObserver()
+    __ 상태 getter/setter __
+    getState()
+    setState()
+}
+note bottom
+    주제 역활을 하는 구상클래스에는
+    항상 Subject 인터페이스를 구현한다.
+end note
+
+class ConcreteObserver{
+    update()
+    __기타 옵저버용 메소드 __
+}
+note bottom
+    Observer를 구현하면 무엇이든
+    옵저버 클래스가 될수 있다.
+end note
+
+
+Subject -r-> Observer : 옵저버
+note right on link
+    각 주제마다 여러개의
+    옵저버가 있을 수 있다.
+end note
+Subject <|.d. ConcreteSubject
+ConcreteSubject <-r- ConcreteObserver : 주제
+Observer <|.. ConcreteObserver
+
+
+@enduml

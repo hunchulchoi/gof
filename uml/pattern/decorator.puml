@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Component{
+    methodA()
+    methodB()
+}
+note top
+    각 구성 요소는 직접 쓰일수도
+    데코레이터에 감싸여 쓰일수도
+end note
+
+class ConcreteComponent{
+    methodA()
+    methodB()
+}
+note top
+    ConcreteComponent에
+    새로운 행동을 동적으로 추가
+end note
+
+class Decorator{
+    Component wrappedObj
+    methodA()
+    methodB()
+}
+note right
+    자신이 장식할 구성 요소와
+    같은 인터페이스/추상 클래스를 구현
+end note
+
+class ConcreteDecoratorA{
+    methodA()
+    methodB()
+    newBehavior()
+    ...()
+}
+note left
+    데코레이터가 감싸고있는
+    Componet 객체용
+    인스턴스 변수가 있다.
+end note
+
+class ConcreteDecoratorB{
+    Object newState
+    methodA()
+    methodB()
+    ...()
+}
+note right
+    데코레이터는
+    콤포넌트의 상태를
+    확장 가능
+end note
+
+
+Component <-- ConcreteComponent
+Component <-- Decorator
+
+ConcreteComponent -[hidden]> Decorator
+
+Decorator <--ConcreteDecoratorA
+Decorator <--ConcreteDecoratorB
+Component <|.. Decorator : 구성요소
+note right on link #blue
+    각 데코레이터 안에는 Component 객체가
+    들어있다. 즉, 데코레이터에는 구성 요소의
+    레퍼런스를 포함한 인스턴스 변수가 있다.
+end note
+
+
+@enduml

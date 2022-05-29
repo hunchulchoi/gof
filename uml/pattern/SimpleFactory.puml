@@ -1,0 +1,36 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class PizzaStore
+note left
+    팩토리를 사용하는 클라이언트
+    SimplePizzaFactory로 부터
+    Pizza 인스턴스를 받는다
+end note
+SimplePizzaFactory : createPizza()
+note right
+    피자 객체를 생성하는 팩토리
+    추상 Pizza 클래스를 직접 참조
+end note
+abstract class Pizza{
+    prepare()
+    bake()
+    cut()
+    box()
+}
+note right
+    팩토리에서 만드는 피자
+    메소드를 오버라이드 해서
+    쓸수 있도록 추상 클래스로 정의
+end note
+class CheesePizza
+class VeggiePizza
+class PepperoniPizza
+
+PizzaStore ..|> SimplePizzaFactory
+SimplePizzaFactory ..|> Pizza
+Pizza <-- CheesePizza
+Pizza <-- VeggiePizza
+Pizza <-- PepperoniPizza
+
+@enduml
