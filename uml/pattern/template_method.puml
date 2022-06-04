@@ -1,0 +1,45 @@
+@startuml
+'https://plantuml.com/class-diagram
+  abstract class AbstractClass{
+    void templateMethod()
+    {abstract} primitiveOperation1()
+    {abstract} primitiveOperation2()
+  }
+
+  note left
+    AbstractClass에
+    템플릿 메소드가 들어있다
+    템플릿 메소드는 알고리즘을 구현할 때
+    primitiveOperation을 활용
+    알고리즘은 이 단계들의 구체적인
+    구현으로 부터 분리
+  end note
+
+  note right of AbstractClass::primitiveOperation1
+    abstract 메소드로 선언된
+    단계(메소드)들이 템플릿
+    메소드에서 활용됩니다.
+  end note
+
+  class ConcreteClass{
+    primitiveOperation1()
+    primitiveOperation2()
+  }
+
+  note left
+    ConcreteClass는 여러 개가 있을 수 있다
+    각 클래스는 템플릿 메소드에서
+    요구하는 모든 단계를 제공해야 한다.
+  end note
+
+  note right of ConcreteClass::primitiveOperation1
+    abstract로 선언되었던 단계들은
+    ConcreteClass에서 구현
+    templateMethod()는 이런
+    메소드를 호출해서 작업을 처리
+  end note
+
+  ConcreteClass -u-> AbstractClass
+
+
+@enduml
