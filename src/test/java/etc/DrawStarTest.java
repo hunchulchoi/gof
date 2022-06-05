@@ -12,7 +12,7 @@ class DrawStarTest {
   @Test
   void draw(){
     DrawStar drawStar = new DrawStar();
-    String draw = drawStar.draw(7);
+    String draw = drawStar.draw(5);
     System.out.println(draw);
   }
 
@@ -21,22 +21,14 @@ class DrawStarTest {
 
     DrawStar drawStar = new DrawStar();
 
-    //IntStream.range(0, 13).forEach(i->assertTrue(drawStar.print(5, 2, i)));
+    IntStream.range(0, 5).forEach(i->assertTrue(drawStar.print(5, 2, i)));
 
     System.out.println("row====0");
     assertFalse(drawStar.print(5, 0, 0));
     assertFalse(drawStar.print(5, 0, 1));
-    assertFalse(drawStar.print(5, 0, 2));
+    assertTrue(drawStar.print(5, 0, 2));
     assertFalse(drawStar.print(5, 0, 3));
     assertFalse(drawStar.print(5, 0, 4));
-    assertTrue(drawStar.print(5, 0, 5));
-    assertTrue(drawStar.print(5, 0, 6));
-    assertFalse(drawStar.print(5, 0, 7));
-    assertFalse(drawStar.print(5, 0, 8));
-    assertFalse(drawStar.print(5, 0, 9));
-    assertFalse(drawStar.print(5, 0, 10));
-    assertFalse(drawStar.print(5, 0, 11));
-    assertFalse(drawStar.print(5, 0, 12));
 
     System.out.println("row====4");
     assertFalse(drawStar.print(5, 4, 0));
