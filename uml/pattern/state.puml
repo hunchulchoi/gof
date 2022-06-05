@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Context{
+  request()
+}
+
+note top
+  Context클래스에는 여러가지
+  내부 상태가 있을 수 있다.
+end note
+
+note left of Context::request
+  request가 호출되면
+  상태 객체에게 그 작업이 맡겨진다.
+end note
+
+interface State{
+  handle()
+}
+
+note top
+  State인터페이스는 모든 구상 상태
+  클래스의 공통 인터페이스를 정의
+end note
+
+class ConcreteStateA implements State
+class ConcreteStateB implements State
+
+note as cnote
+  ConcreteState는 Context로 부터 전달된 요청을
+  자기 나름의 방식으로 구현
+end note
+
+Context -R-> State
+
+ConcreteStateA .. cnote
+ConcreteStateB .. cnote
+
+@enduml
