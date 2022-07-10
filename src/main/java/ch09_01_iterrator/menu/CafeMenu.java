@@ -1,6 +1,4 @@
-package ch_09_01_iterrator.menu;
-
-import lombok.Getter;
+package ch09_01_iterrator.menu;
 
 import java.util.HashMap;
 import java.util.List;

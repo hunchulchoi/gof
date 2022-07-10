@@ -1,4 +1,4 @@
-package ch_09_02_composite;
+package ch09_02_composite;
 
 import java.util.ArrayList;
 import java.util.List;

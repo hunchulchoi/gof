@@ -1,6 +1,5 @@
-package ch_09_02_composite;
+package ch09_02_composite;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

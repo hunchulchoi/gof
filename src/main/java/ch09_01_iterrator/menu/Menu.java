@@ -1,4 +1,4 @@
-package ch_09_01_iterrator.menu;
+package ch09_01_iterrator.menu;
 
 import java.util.List;
 

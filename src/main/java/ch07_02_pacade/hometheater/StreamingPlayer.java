@@ -1,9 +1,11 @@
 package ch07_02_pacade.hometheater;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class StreamingPlayer extends AVMachine implements Player {
 
   public StreamingPlayer() {

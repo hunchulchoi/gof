@@ -1,7 +1,4 @@
-package ch_09_02_composite;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+package ch09_02_composite;
 
 import java.util.Optional;
 
